@@ -5,7 +5,7 @@
 ## What is this project?
 - This is a hands-on practical security automation project. The goal was to eliminate manual security alerts and build a closed-loop system, where a SIEM detects a threat and SOAR platform acts immediately to investigate.
 
-- I span up a Dockerized Wazul Manager to monitor system logs, hooked it directly to a local Shuffle SOAR instance via webhooks, and built an automated threat intelligence pipeline that pulls out malicious IPs and enriches them with real-world geographical and network data in real time.
+- I span up a Dockerized Wazuh Manager to monitor system logs, hooked it directly to a local Shuffle SOAR instance via webhooks, and built an automated threat intelligence pipeline that pulls out malicious IPs and enriches them with real-world geographical and network data in real time.
 
 ## The Tech Stack
 * **SIEM:** Wazuh Manager (Single-node Docker deployment on Ubuntu 24.04)
@@ -21,7 +21,7 @@ While working on building the system in the local lab environment, there were a 
 This bypassed the strict local SSL restriction and managed to open the data pipe.
 
 ### 2. No ID for Alert (KeyError: 'id')
-- The Problem: While testing out the integration on custom alerts' mockup, Shuffle dropped payloads, and the Wazuh logs revealed the presence of Python KeyError 'id'. A very strict JSON format with a top-level field that uniquely identifies the alert is required by the script for the intergration, which is not present in the logs manually created.
+- The Problem: While testing out the integration on custom alerts' mockup, Shuffle dropped payloads, and the Wazuh logs revealed the presence of Python KeyError 'id'. A very strict JSON format with a top-level field that uniquely identifies the alert is required by the script for the integration, which is not present in the logs manually created.
 - The Solution: I structured one-line JSON mock alert template that was developed to match the data schema requirements in the script, which allowed the logs to be processed and exit with code 0.
 
 ## How the Automation Works
