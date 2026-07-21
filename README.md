@@ -26,10 +26,11 @@ This bypassed the strict local SSL restriction and managed to open the data pipe
 
 ## How the Automation Works
 1. **Detection:** An event causes the generation of an alert in Wazuh (e.g., simulation of a brute force SSH attack).
-
+![Wazuh Alert Dashboard](wazuh_alert_dashboard.png)
 2. **Forwarding:** An alert is picked up by the integrated engine of Wazuh and automatically transmits the entire JSON payload to the Shuffle webhook URL.
-
+![Wazuh Integrator Log](wazuh_integrator_log.png)
 3. **Parsing & Extraction:** The (`srcip`), which is the attacker's source IP, gets extracted by Shuffle from the JSON alert embedded in the payload.
-
+![Shuffle Workflow Canvas](shuffle_workflow_canvas.png)
 4. **Enrichment:** Shuffle dynamically gets that extracted IP address, queries the external intelligence API, and receives all the context information about the attacker, such as the location (country, city, and ISP).
-
+![Shuffle Execution History](workflow_runs.png)
+![Shuffle Execution Run](shuffle_execution_run.png)
