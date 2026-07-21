@@ -37,3 +37,5 @@ This bypassed the strict local SSL restriction and managed to open the data pipe
 4. **Enrichment:** Shuffle dynamically gets that extracted IP address, queries the external intelligence API, and receives all the context information about the attacker, such as the location (country, city, and ISP).
 ![Shuffle Execution History](workflow_runs.png)
 ![Shuffle Execution Run](shuffle_execution_run.png)
+
+
